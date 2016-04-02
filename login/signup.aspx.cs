@@ -12,7 +12,7 @@ using System.Configuration;
 
 public partial class login_signup : System.Web.UI.Page
 {
-    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pragya\Documents\SEM_4\DBMS_Project\Test1\App_Data\Database.mdf;Integrated Security=True;Connect Timeout=30");
+    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Sushant\Documents\GitHub\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
     protected void Page_Load(object sender, EventArgs e)
     {
         
@@ -28,10 +28,12 @@ public partial class login_signup : System.Web.UI.Page
         {
             con.Open();
             SqlCommand cmd = new SqlCommand("insert into Customers values('" + name.Text + "','" + gender.Text + "','" + email.Text + "','" + username.Text + "','" + password.Text + "','" + address.Text + "','" + mobile.Text + "','" + "User" + "')", con);
-           int i = cmd.ExecuteNonQuery();
+            int i = cmd.ExecuteNonQuery();
             if (i > 0)
             {
-                lblmsg.Text = "Saved!!";
+                lblmsg.Text = "Successfully Signed Up";
+                for (i = 0; i < 50000; i++) ;
+                Response.Redirect("../Home.aspx");
             }
             else
             {
