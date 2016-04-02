@@ -25,8 +25,7 @@
 		<asp:TextBox ID="username" runat="server" placeholder="Username"></asp:TextBox>
         <asp:TextBox ID="password" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
 	    <div class="forgot">
-            <asp:Button ID="login" runat="server" Text="Login" onclick="login_Click" />
-
+            <asp:Button ID="login" runat="server" Text="Login" onclick="login_Click" /> 
 	    </div>
 	</div>
 	<div class="login-bottom">
@@ -35,7 +34,7 @@
 	</div>
 </div>	
 <div class="copyright">
-	<p>Login in to <a href="#"> SHOP </a></p>
+	<p>Login in to <a href="../Home.aspx"> Equilibrium </a></p>
 </div>
 
     </form>

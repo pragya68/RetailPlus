@@ -27,7 +27,7 @@ public partial class login_signup : System.Web.UI.Page
         try
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("insert into Customers values('" + name.Text + "','" + gender.Text + "','" + email.Text + "','" + username.Text + "','" + password.Text + "','" + address.Text + "','" + mobile.Text + "')", con);
+            SqlCommand cmd = new SqlCommand("insert into Customers values('" + name.Text + "','" + gender.Text + "','" + email.Text + "','" + username.Text + "','" + password.Text + "','" + address.Text + "','" + mobile.Text + "','" + "User" + "')", con);
            int i = cmd.ExecuteNonQuery();
             if (i > 0)
             {

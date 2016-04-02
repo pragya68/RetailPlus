@@ -41,7 +41,7 @@
 	    </div>
     </div>	
     <div class="copyright">
-	    <p>Login in to <a href="#"> englishNewsRead </a></p>
+	    <p>Login in to <a href="../Home.aspx"> Equilibrium </a></p>
     </div> 
     </ContentTemplate>
     </asp:UpdatePanel>
