@@ -25,17 +25,17 @@
     <div class="login">
         <h2>Sign Up</h2>
         <div class="login-top">
-            <asp:HiddenField runat="server" ID="hdfgender" />
-            <asp:TextBox ID="name" runat="server" placeholder="Name"></asp:TextBox><br />
-            <asp:TextBox ID="gender" runat="server" placeholder="Gender"></asp:TextBox> <!-- make this radio button -->
-		    <asp:TextBox ID="username" runat="server" placeholder="Username" ></asp:TextBox ><!-- already exsits-->
+            <asp:TextBox ID="name" runat="server" placeholder="Name" ></asp:TextBox><br />
+            <asp:TextBox ID="gender" runat="server" placeholder="Male/Female" ></asp:TextBox>
+		    <asp:TextBox ID="address" runat="server" placeholder="Address" ></asp:TextBox>
+            <asp:TextBox ID="username" runat="server" placeholder="Username" AutoPostBack="true" OnTextChanged="username_TextChanged1"></asp:TextBox >
             <asp:TextBox ID="password" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
-            <asp:TextBox ID="email" runat="server" placeholder="e-mail Id"></asp:TextBox>
-            <!-- add active inactive thing -->
+            <asp:TextBox ID="email" runat="server" placeholder="e-mail Id" ></asp:TextBox>
+            <asp:TextBox ID="mobile" runat="server" placeholder="Phone no."></asp:TextBox>
 	    </div>
 	    <div class="login-bottom">
             <div class="forgot">
-		        <asp:Button ID="save" runat="server" Text="Save" CssClass="btn"/>
+		        <asp:Button ID="save" runat="server" Text="Save" CssClass="btn" OnClick="save_Click"/>
                 <asp:Label ID="lblmsg" runat="server" Text="" ></asp:Label><br />
             </div>
 	    </div>
