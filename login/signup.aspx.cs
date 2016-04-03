@@ -12,6 +12,7 @@ using System.Configuration;
 
 public partial class login_signup : System.Web.UI.Page
 {
+    //SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\pragya\Documents\SEM_4\DBMS_Project\Test1\App_Data\Database.mdf;Integrated Security = True; Connect Timeout = 30");
     SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Sushant\Documents\GitHub\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
     protected void Page_Load(object sender, EventArgs e)
     {
