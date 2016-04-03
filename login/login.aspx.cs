@@ -37,7 +37,7 @@ public partial class login_login : System.Web.UI.Page
                 if (type == "Admin")
                 {
                     Session["id"] = dt.Rows[0]["Username"].ToString();
-                    Response.Redirect("Admin/AdminHome.aspx");
+                    Response.Redirect("../Admin/AdminHome.aspx");
                 }
                 if (type == "User")
                 {
