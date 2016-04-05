@@ -20,7 +20,6 @@ margin:0px;
 
 #main_container{
 width:1349px;
-height:auto;
 margin:0;
 padding:0px;
 background-color:#FFFFFF;
@@ -498,6 +497,7 @@ color:#1c4a52;
 }
 /*--------------footer----------------*/
 .footer{
+position:relative;
 width:1349px;
 clear:both;
 height:120px;
@@ -564,3 +564,5 @@ padding:10px 0 0 60px;
 	height: 22px;
 	width: 230px;
 }
+
+h1 { color: #404040; font-family:Candara; font-size: 30px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase; }

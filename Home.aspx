@@ -15,9 +15,61 @@
             
             <img src="images/slider4.jpg" alt="" />
             <img src="images/slider5.jpg" alt="" />
-        </div>     
-    </div>
-    
+        </div>  
+       </div>
+       <h1>Trending Products</h1>
+    <br />
+             
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:ListView ID="ListViewPopularProducts" runat="server" style="margin-left:20px; margin-right:20px"  GroupItemCount="4">
+        <LayoutTemplate>
+            <table cellpadding="2" runat="server" id="tblProducts" style="height: 320px">
+                <tr runat="server" id="groupPlaceholder"> </tr>
+            </table>
+            <div style="text-align:center; font-family:'candara'; font-size:24px;"> 
+            <asp:DataPager runat="server" ID="DataPager" PageSize="12" style="text-align: center">
+                <Fields>
+                    <asp:NumericPagerField ButtonCount="4" PreviousPageText="Prev" NextPageText="Next"  />
+                </Fields>
+            </asp:DataPager>
+                </div>
+        </LayoutTemplate>
 
+        <GroupTemplate>
+            <tr runat="server" id="productRow" style="height: 100px;">
+                <td runat="server" id="itemPlaceholder"></td>
+            </tr>
+        </GroupTemplate>
+
+        <ItemTemplate>
+            <td style="width:30%;" runat="server" class="ListView_Product_List" >
+
+                <asp:Image ID="ImageProductImage" runat="server"  ImageUrl='~/product_images/samsung-galaxy-s6.jpgSamsung Galaxy S7.jpg' Height="140px" Width="150px" /><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <asp:HyperLink ID="HyperLinkProductLink" runat="server" Target="_blank" Text='<%#Eval("ProductName")%>' /><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <asp:Label ID="LabelPrice" runat="server" Text="Unit Price : Rs."><%#Eval("MSRP")%></asp:Label>
+                
+                <br />
+
+
+                
+            </td>
+        </ItemTemplate>
+
+    </asp:ListView>
+
+     <div class="footer">
+                <div class="left_footer">
+                    <a href="#">home</a> <a href="#">about</a> <a href="#">sitemap</a> <a href="#">rss</a> <a href="#">contact us</a>
+                </div>
+                <div class="center_footer">
+                        
+                </div>
+                <div class="right_footer">
+                <img src="css/images/websitebasket.png" alt="" width="100" height="100" />
+                 </div>
+            </div>
 </asp:Content>
 
