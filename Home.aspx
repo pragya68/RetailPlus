@@ -20,7 +20,9 @@
        <h1>Trending Products</h1>
     <br />
              
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:ListView ID="ListViewPopularProducts" runat="server" style="margin-left:20px; margin-right:20px"  GroupItemCount="4">
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div style="background-color:#ffffff">
+     <asp:ListView ID="ListViewPopularProducts" runat="server" style="margin-left:20px; margin-right:20px; background-color:#ffffff;"  GroupItemCount="4">
         <LayoutTemplate>
             <table cellpadding="2" runat="server" id="tblProducts" style="height: 320px">
                 <tr runat="server" id="groupPlaceholder"> </tr>
@@ -43,7 +45,7 @@
         <ItemTemplate>
             <td style="width:30%;" runat="server" class="ListView_Product_List" >
 
-                <asp:Image ID="ImageProductImage" runat="server"  ImageUrl='~/product_images/samsung-galaxy-s6.jpgSamsung Galaxy S7.jpg' Height="140px" Width="150px" /><br />
+                <asp:Image ID="ImageProductImage" runat="server"  ImageUrl='<%#Eval("Img")%>' Height="140px" Width="150px" /><br />
                 &nbsp;&nbsp;&nbsp;&nbsp;
 
                 <asp:HyperLink ID="HyperLinkProductLink" runat="server" Target="_blank" Text='<%#Eval("ProductName")%>' /><br />
@@ -59,7 +61,7 @@
         </ItemTemplate>
 
     </asp:ListView>
-
+    </div>
      <div class="footer">
                 <div class="left_footer">
                     <a href="#">home</a> <a href="#">about</a> <a href="#">sitemap</a> <a href="#">rss</a> <a href="#">contact us</a>
