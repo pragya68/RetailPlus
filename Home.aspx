@@ -30,7 +30,7 @@
             <div style="text-align:center; font-family:'candara'; font-size:24px;"> 
             <asp:DataPager runat="server" ID="DataPager" PageSize="12" style="text-align: center">
                 <Fields>
-                    <asp:NumericPagerField ButtonCount="4" PreviousPageText="Prev" NextPageText="Next"  />
+                    <asp:NumericPagerField ButtonCount="1" PreviousPageText="Prev" NextPageText="Next"  />
                 </Fields>
             </asp:DataPager>
                 </div>

@@ -48,6 +48,7 @@
     <div id="main_container">
         <div id="header">
             <img  alt="Buy" height="120px" width="120px" align="left"  src="css/images/websitebasket.png" />
+
              <p class="links"><a href="login/login.aspx"><asp:Label ID="Label1" runat="server" Text=""></asp:Label></a> | 
                  <a href="login/signup.aspx"> <asp:Label ID="Label2" runat="server" Text=""></asp:Label></a>
                  <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">
