@@ -3,8 +3,6 @@
 #mcis {display:none;}
 
 #sliderFrame {position:relative;width:700px;margin: 0;}
-
-#ribbon {width:111px;height:111px;position:absolute;top:-4px;left:-4px;background:url(ribbon.png) no-repeat;z-index:7;}
         
 #slider {
     width:1349px;height:300px;/* Make it the same size as your images */
