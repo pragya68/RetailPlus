@@ -34,21 +34,27 @@
             <div id='cssmenu'>
 <ul>
     <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
-      <li><a href='#'><span>Home</span></a></li>
+      <li><a href="Home.aspx"><span>Home</span></a></li>
    <li class='active has-sub'><a href='#'><span>Products</span></a>
       <ul>
          <li class='has-sub'><a href='#'><span>Electronics</span></a>
             <ul>
-               <li><a href='#'><span>Mobiles</span></a></li>
-                <li><a href='#'><span>Audio Devices</span></a></li>
-               <li class='last'><a href='#'><span>Laptops</span></a></li>
+               <li><span>
+                   <asp:LinkButton ID="LinkButtonMobiles" runat="server" OnClick="LinkButtonMobiles_Click">Mobiles</asp:LinkButton></span></li>
+                <li><span>
+                    <asp:LinkButton ID="LinkButtonAudioDevices" runat="server" OnClick="LinkButtonAudioDevices_Click">Audio Devices</asp:LinkButton></span></li>
+               <li class='last'><span>
+                   <asp:LinkButton ID="LinkButtonLaptop" runat="server" OnClick="LinkButtonLaptop_Click">Laptops</asp:LinkButton></span></li>
             </ul>
          </li>
          <li class='has-sub'><a href='#'><span>Books</span></a>
             <ul>
-               <li><a href='#'><span>Fiction</span></a></li>
-                <li><a href='#'><span>Non Fiction</span></a></li>
-               <li class='last'><a href='#'><span>Bestsellers</span></a></li>
+               <li><span>
+                   <asp:LinkButton ID="LinkButtonFiction" runat="server" OnClick="LinkButtonFiction_Click">Fiction</asp:LinkButton></span></li>
+                <li><span>
+                    <asp:LinkButton ID="LinkButtonNonFiction" runat="server" OnClick="LinkButtonNonFiction_Click">Non Fiction</asp:LinkButton></span></li>
+               <li class='last'><span>
+                   <asp:LinkButton ID="LinkButtonBestsellers" runat="server" OnClick="LinkButtonBestsellers_Click">Bestsellers</asp:LinkButton></span></li>
             </ul>
          </li>
       </ul>
