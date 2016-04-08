@@ -54,9 +54,8 @@
                 
                 <asp:Image ID="ImageProductImage" runat="server"  ImageUrl='<%#Eval("Img")%>' Height="140px" Width="150px" /><br /><br />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-
-                <asp:HyperLink ID="HyperLinkProductLink" runat="server" Target="_blank" Text='<%#Eval("ProductName")%>' NavigateUrl='<%#"ProductView.aspx?ProductId="+Eval("ProductId")%>' OnDataBinding="HyperLinkProductLink_DataBinding" /><br />
-                &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:LinkButton ID="LinkButtonProductLink" runat="server" OnCommand="LinkButtonProductLink_Command" CommandArgument='<%#Eval("ProductID")%>'  ><%#Eval("ProductName")%></asp:LinkButton></br>
+              
 
                 <asp:Label ID="LabelPrice" runat="server" Text="Unit Price : Rs."><%#Eval("MSRP")%></asp:Label>
                 

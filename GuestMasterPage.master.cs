@@ -59,4 +59,9 @@ public partial class GuestMasterPage : System.Web.UI.MasterPage
     {
 
     }
+
+    protected void LinkButtonCart_Click(object sender, EventArgs e)
+    {
+
+    }
 }
