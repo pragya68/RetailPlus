@@ -1,11 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GuestMasterPage.master" AutoEventWireup="true" CodeFile="Products.aspx.cs" Inherits="Products" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/GuestMasterPage.master" AutoEventWireup="true" CodeFile="Products.aspx.cs" Inherits="Products" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <link rel="stylesheet" href="css/menu.css"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div style="width:100%">
-    <div style="float:left; width:15%;height:620px; background-color:#333">
+    <div style="float:left; width:15%;height:1400px; background-color:#333">
+         
 <div id='cssmenu_v'>
 <ul>
    <li class='active'></li>
@@ -13,7 +14,7 @@
        <asp:LinkButton ID="LinkButtonHL" runat="server" OnClick="LinkButtonHL_Click">Price:High to Low</asp:LinkButton></span></li>
    <li><span>
        <asp:LinkButton ID="LinkButtonLH" runat="server" OnClick="LinkButtonLH_Click">Price:Low to High</asp:LinkButton></span></li>
-    <li><a href='#'><span>Colour :<asp:CheckBoxList ID="CheckBoxList1" runat="server" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged">
+    <li><a href='#'><span>Colour :<asp:CheckBoxList ID="CheckBoxList1" runat="server" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" AutoPostBack="true" >
                                     <asp:ListItem Text="White" Value="White"></asp:ListItem>
                                     <asp:ListItem Text="Black" Value="Black"></asp:ListItem>
                                     <asp:ListItem Text="Golden" Value="Golden"></asp:ListItem>
@@ -33,13 +34,6 @@
             <table cellpadding="2" runat="server" id="tblProducts" style="height: 320px">
                 <tr runat="server" id="groupPlaceholder"> </tr>
             </table>
-            <div style="text-align:center; font-family:'candara'; font-size:24px;"> 
-            <asp:DataPager runat="server" ID="DataPager" PageSize="12" style="text-align: center">
-                <Fields>
-                    <asp:NumericPagerField ButtonCount="1" PreviousPageText="Prev" NextPageText="Next"  />
-                </Fields>
-            </asp:DataPager>
-                </div>
         </LayoutTemplate>
 
         <GroupTemplate>
@@ -53,6 +47,7 @@
                 
                 <asp:Image ID="ImageProductImage" runat="server"  ImageUrl='<%#Eval("Img")%>' Height="140px" Width="150px" /><br /><br />
                 &nbsp;&nbsp;&nbsp;&nbsp;
+
                 <asp:LinkButton ID="LinkButtonProductLink" runat="server" OnCommand="LinkButtonProductLink_Command" CommandArgument='<%#Eval("ProductID")%>'  ><%#Eval("ProductName")%></asp:LinkButton></br>
               
                   &nbsp;&nbsp;&nbsp;&nbsp;
@@ -65,6 +60,7 @@
 
                 
             </td>
+
         </ItemTemplate>
 
     </asp:ListView>

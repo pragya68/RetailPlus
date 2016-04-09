@@ -9,9 +9,7 @@ using System.Web.UI.WebControls;
 
 public partial class Products : System.Web.UI.Page
 {
-    
-    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pragya\Documents\SEM_4\DBMS_Project\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
-    String Value;
+    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Sushant\Documents\GitHub\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["CategoryId"] != null)
@@ -24,7 +22,7 @@ public partial class Products : System.Web.UI.Page
         try
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from Products where ProductType = '" + Session["CategoryID"].ToString() + "'", con);
+            SqlCommand cmd= new SqlCommand("select * from Products where ProductType = '" + Session["CategoryID"].ToString() + "'", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -48,13 +46,43 @@ public partial class Products : System.Web.UI.Page
 
     protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+        String text="'";
+        int check = 0; 
+        for(int i = 0; i < CheckBoxList1.Items.Count; i++)
+        {
+            
+            if (CheckBoxList1.Items[i].Selected)
+            {
+                if (check > 0)
+                {
+                    text += "' OR Colour ='";
+                }
+                text += CheckBoxList1.Items[i].Text;
+                check++;
+            }
+        }
+        try
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select * from Products where ProductType = '" + Session["CategoryID"].ToString() + "' and ( Colour = "+ text +"') ", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            ListViewPopularProducts.DataSource = dt;
+            ListViewPopularProducts.DataBind();
+        }
+        catch (Exception)
+        {
+        }
+        finally
+        {
+            con.Close();
+        }
     }
 
     protected void LinkButtonHL_Click(object sender, EventArgs e)
     {
-        try
-        {
+        try{
             con.Open();
             SqlCommand cmd = new SqlCommand("select * from Products where ProductType = '" + Session["CategoryID"].ToString() + "' order by MSRP desc ", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -63,7 +91,7 @@ public partial class Products : System.Web.UI.Page
             ListViewPopularProducts.DataSource = dt;
             ListViewPopularProducts.DataBind();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
         }
         finally
