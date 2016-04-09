@@ -59,7 +59,7 @@
          </li>
       </ul>
    </li>
-   <li><a href='#'><span>About</span></a></li>
+   <li><a href="About.aspx"><span>About</span></a></li>
     <li><span><asp:LinkButton ID="LinkButtonCart" runat="server" OnClick="LinkButtonCart_Click">Shopping Cart()</asp:LinkButton></span></li>
 </ul>
 </div>
