@@ -6,17 +6,19 @@
     <link href="../css/generic.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id="sliderFrame">
-        <div id="slider">
-            <img src="../images/slider1.jpg" alt="" />
-            <img src="../images/slider2.jpg" alt="" />
-           
-           	<img src="../images/slider3.jpg" alt="" />
-            
-            <img src="../images/slider4.jpg" alt="" />
-            <img src="../images/slider5.jpg" alt="" />
-        </div>     
-    </div>
+    <h1> Welcome ADMIN !! </h1>
+     <br /> <br /> <br /><br /><br /><br /><br /><br /> <br /> <br /> <br /><br /><br /><br /><br /><br /><br /> 
+    <div class="footer">
+                <div class="left_footer">
+                    <a href="AdminHome.aspx">home</a> <a href="Products.aspx">Products</a> <a href="Manufacturers.aspx">Manufacturers</a> <a href="UserInfo.aspx">Users</a>
+                </div>
+                <div class="center_footer">
+                        
+                </div>
+                <div class="right_footer">
+                <img src="../css/images/websitebasket.png" alt="" width="100" height="100" />
+                 </div>
+            </div>
 
 </asp:Content>
 

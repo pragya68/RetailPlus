@@ -48,11 +48,12 @@
                 <asp:Image ID="ImageProductImage" runat="server"  ImageUrl='<%#Eval("Img")%>' Height="140px" Width="150px" /><br />
                 &nbsp;&nbsp;&nbsp;&nbsp;
 
-                <asp:HyperLink ID="HyperLinkProductLink" runat="server" Target="_blank" Text='<%#Eval("ProductName")%>' /><br />
+                <asp:LinkButton ID="LinkButtonProductLink" runat="server" OnCommand="LinkButtonProductLink_Command" CommandArgument='<%#Eval("ProductID")%>'  ><%#Eval("ProductName")%></asp:LinkButton></br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
 
-                <asp:Label ID="LabelPrice" runat="server" Text="Unit Price : Rs."><%#Eval("MSRP")%></asp:Label>
-                
+                <asp:Label ID="LabelPrice" runat="server" Text="Unit Price : Rs."><%#Eval("MSRP")%></asp:Label><br />
+                 &nbsp;&nbsp;&nbsp;&nbsp;
+                 <asp:LinkButton ID="LinkButton1" runat="server" OnCommand="LinkButton1_Command" CommandArgument='<%#Eval("ProductID")%>' >Add to Cart</asp:LinkButton>
                 <br />
 
 

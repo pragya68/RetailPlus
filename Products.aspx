@@ -28,7 +28,6 @@
         </span></a></li></ul> </div></div>
      <div style="float:left;width:85%">
     <div style="background-color:#fff; " >
-        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
      <asp:ListView ID="ListViewPopularProducts" runat="server" style="margin-left:30px; margin-right:30px; background-color:#ffffff;"  GroupItemCount="4" EnableSortingAndPagingCallbacks="true">
         <LayoutTemplate>
             <table cellpadding="2" runat="server" id="tblProducts" style="height: 320px">
@@ -56,8 +55,10 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:LinkButton ID="LinkButtonProductLink" runat="server" OnCommand="LinkButtonProductLink_Command" CommandArgument='<%#Eval("ProductID")%>'  ><%#Eval("ProductName")%></asp:LinkButton></br>
               
-
-                <asp:Label ID="LabelPrice" runat="server" Text="Unit Price : Rs."><%#Eval("MSRP")%></asp:Label>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="LabelPrice" runat="server" Text="Unit Price : Rs."><%#Eval("MSRP")%></asp:Label><br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:LinkButton ID="LinkButton1" runat="server" OnCommand="LinkButton1_Command" CommandArgument='<%#Eval("ProductID")%>' >Add to Cart</asp:LinkButton>
                 
                 <br /><br />
 

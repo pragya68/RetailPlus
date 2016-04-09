@@ -19,7 +19,7 @@
 <body>
     <form id="form1" runat="server">
     <div class="login">
-        
+        <asp:Label ID="Label2" runat="server" Text=""></asp:Label>  
 	<div class="login-top">
 		<h1>LOGIN</h1>
 		<asp:TextBox ID="username" runat="server" placeholder="Username"></asp:TextBox>

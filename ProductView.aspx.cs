@@ -13,23 +13,40 @@ public partial class ProductView : System.Web.UI.Page
     String ID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        bindimg();
         bindData();
-        Label1.Text = Session["ProductID"].ToString();
     }
-    void bindData()
+    void bindimg()
     {
-        //int pid;
-        //if(Session["ProductID"] != null)
-           // pid = Int32.Parse(Session["ProductID"].ToString());
         try
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from Products where ProductID = '" + Int32.Parse(Session["ProductID"].ToString()) + "'", con);
+            SqlCommand cmd = new SqlCommand("select * from Products where ProductID = " + Convert.ToInt32(Session["ProductID"]) + " ", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable imgdt = new DataTable();
+            da.Fill(imgdt);
+            ListViewImg.DataSource = imgdt;
+            ListViewImg.DataBind();
+        }
+        catch (Exception ex)
+        {
+        }
+        finally
+        {
+            
+        }
+    }
+
+    void bindData() {
+        try
+        {
+            
+            SqlCommand cmd = new SqlCommand("select * from Products where ProductID = " + Convert.ToInt32(Session["ProductID"]) + " ", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            ListViewImg.DataSource = dt;
-            ListViewImg.DataBind();
+            ListViewProductList.DataSource = dt;
+            ListViewProductList.DataBind();
         }
         catch (Exception ex)
         {
@@ -39,4 +56,4 @@ public partial class ProductView : System.Web.UI.Page
             con.Close();
         }
     }
-}
+   }

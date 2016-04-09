@@ -11,8 +11,8 @@ using System.Configuration;
 
 public partial class login_login : System.Web.UI.Page
 {
-    // SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\pragya\Documents\SEM_4\DBMS_Project\Test1\App_Data\Database.mdf;Integrated Security = True; Connect Timeout = 30");
-    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Sushant\Documents\GitHub\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
+    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pragya\Documents\SEM_4\DBMS_Project\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
+    //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Sushant\Documents\GitHub\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -30,9 +30,11 @@ public partial class login_login : System.Web.UI.Page
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
+            
+            
+            
             if (dt.Rows.Count > 0)
             {
-                Label1.Text = "Wri1!!";
                 string type = dt.Rows[0]["Type"].ToString();
                 
                 if (type == "Admin")
@@ -43,8 +45,11 @@ public partial class login_login : System.Web.UI.Page
                 if (type == "User")
                 {
                     Session["id"] = dt.Rows[0]["Username"].ToString();
-                    Response.Redirect("/Home.aspx");
-                    Label1.Text = "Wri!!";
+                              
+                    
+                    cart();
+                    //Label2.Text = "ujujits working";
+                    Response.Redirect("../Home.aspx");
                 }
             }
             else
@@ -61,5 +66,24 @@ public partial class login_login : System.Web.UI.Page
         {
             con.Close();
         }
+    
     }
+    void cart()
+    {
+        SqlCommand nCmd = new SqlCommand("Select TOP 2 * from OrderDetails order by OrderID desc", con);
+        SqlDataAdapter nDa = new SqlDataAdapter(nCmd);
+        DataTable nDt = new DataTable();
+        nDa.Fill(nDt);
+        Label2.Text = "Test";
+        if (nDt.Rows.Count > 0)
+        {
+            Session["OId"] = nDt.Rows[0]["OrderID"];
+            Session["Previous"]= nDt.Rows[1]["OrderID"];
+            int v = Convert.ToInt32(Session["OId"]);
+            Session["OId"] = v + 100;
+           // Label2.Text = Session["OId"].ToString();
+        }
+        con.Close();
+    }
+
 }  

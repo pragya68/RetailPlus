@@ -5,16 +5,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="width:100%;">
-         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-        <div style="width:30%; float:left;"> 
+         
+        <div style="width:29%; float:left;"> 
             <asp:ListView ID="ListViewImg" runat="server">
                 <ItemTemplate>
-            <asp:Image ID="ImageProductImage" runat="server" style="padding-left:50px;margin-top:80px;" ImgUrl='<%#Eval("Img")%>' />
+            <asp:Image ID="ImageProductImage" runat="server" ImageUrl='<%#Eval("Img")%>'  style="padding-left:50px;margin-top:80px;" />
                    
                 </ItemTemplate>
             </asp:ListView>
         </div>
-        <div style="width:70%;float:left;">     
+        <div style="width:71%;float:left;">     
         <asp:ListView  runat="server" ID="ListViewProductList" GroupItemCount="1" DataSourceID="" DataKeyNames="ProductID">
         <ItemTemplate>
             <td runat="server"  class="ListView_Product_List">

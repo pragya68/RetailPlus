@@ -38,4 +38,24 @@ public partial class _Default : System.Web.UI.Page
             con.Close();
         }
     }
+
+    protected void LinkButtonProductLink_Command(object sender, CommandEventArgs e)
+    {
+        Session["ProductId"] = e.CommandArgument.ToString();
+        Response.Redirect("~/ProductView.aspx?ProductId='" + Session["ProductId"].ToString() + "'");
+    }
+
+    protected void LinkButton1_Command(object sender, CommandEventArgs e)
+    {
+        if (Session["id"] == null)
+        {
+            Response.Redirect("~/login/login.aspx");
+        }
+
+        else
+        {
+            Session["OrderId"] = e.CommandArgument.ToString();
+            Response.Redirect("~/AddtoCart.aspx");
+        }
+    }
 }

@@ -62,6 +62,14 @@ public partial class GuestMasterPage : System.Web.UI.MasterPage
 
     protected void LinkButtonCart_Click(object sender, EventArgs e)
     {
+        Response.Redirect("~/ShoppingCart.aspx");
+    }
 
+    protected void LinkButtonCart_Load(object sender, EventArgs e)
+    {
+        if(Session["id"] == null)
+        {
+            LinkButtonCart.Text = "Shopping Cart";
+        }
     }
 }

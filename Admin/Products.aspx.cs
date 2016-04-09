@@ -16,7 +16,7 @@ public partial class Admin_Products : System.Web.UI.Page
     //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Sushant\Documents\GitHub\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        bindData();
     }
 
     protected void save_Click(object sender, EventArgs e)
@@ -42,5 +42,48 @@ public partial class Admin_Products : System.Web.UI.Page
             con.Close();
             
         }
+    }
+    void bindData()
+    {
+        try
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select * from Products ORDER BY ProductType", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            GridViewProductInfo.DataSource = dt;
+            GridViewProductInfo.DataBind();
+            con.Close();
+        }
+        catch
+        {
+        }
+        finally
+        {
+            con.Close();
+        }
+    }
+
+
+    protected void linkdelete_Command(object sender, CommandEventArgs e)
+    {
+        int id = Convert.ToInt32(e.CommandArgument);
+        lblmsg.Text = id.ToString();
+        try
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("delete from Products where ProductID =" + id + " ", con);
+            cmd.ExecuteNonQuery();
+            bindData();
+        }
+        catch (Exception ex)
+        {
+        }
+        finally
+        {
+            con.Close();
+        }
+
     }
 }
