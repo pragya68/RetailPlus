@@ -12,8 +12,8 @@ using System.Configuration;
 public partial class login_login : System.Web.UI.Page
 {
 
-    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pragya\Documents\SEM_4\DBMS_Project\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
-    //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Sushant\Documents\GitHub\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
+    //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pragya\Documents\SEM_4\DBMS_Project\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
+    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Sushant\Documents\GitHub\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -72,7 +72,7 @@ public partial class login_login : System.Web.UI.Page
     }
     void cart()
     {
-        SqlCommand nCmd = new SqlCommand("Select TOP 2 * from OrderDetails order by OrderID desc", con);
+        SqlCommand nCmd = new SqlCommand("Select TOP 1 * from OrderDetails order by OrderID desc", con);
         SqlDataAdapter nDa = new SqlDataAdapter(nCmd);
         DataTable nDt = new DataTable();
         nDa.Fill(nDt);
@@ -80,9 +80,10 @@ public partial class login_login : System.Web.UI.Page
         if (nDt.Rows.Count > 0)
         {
             Session["OId"] = nDt.Rows[0]["OrderID"];
-            Session["Previous"]= nDt.Rows[1]["OrderID"];
             int v = Convert.ToInt32(Session["OId"]);
-            Session["OId"] = v + 100;
+            Session["OId"] = v + 1;
+            int itemNo = 0;
+            Session["ItemNO"] = itemNo;
            // Label2.Text = Session["OId"].ToString();
         }
         con.Close();

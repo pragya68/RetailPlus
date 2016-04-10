@@ -72,7 +72,12 @@ public partial class GuestMasterPage : System.Web.UI.MasterPage
     {
         if(Session["id"] == null)
         {
-            LinkButtonCart.Text = "Shopping Cart";
+           // Label4.Text = "Shopping Cart(0)";
         }
+        else
+        {
+            //Label4.Text = "Shopping Cart(" + Session["ItemNO"].ToString() + ")";
+        }
+
     }
 }

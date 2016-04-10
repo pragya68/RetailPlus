@@ -9,28 +9,16 @@ using System.Web.UI.WebControls;
 
 public partial class AddtoCart : System.Web.UI.Page
 {
-    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pragya\Documents\SEM_4\DBMS_Project\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
+    //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pragya\Documents\SEM_4\DBMS_Project\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
+    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Sushant\Documents\GitHub\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
     protected void Page_Load(object sender, EventArgs e)
     {
-        int ItemNo,curId,preID,finalID;
-        String fakeId;
+        int tmp;
         con.Open();
         SqlCommand cmd = new SqlCommand("Select * from Products where ProductID = "+ Convert.ToInt32(Session["OrderId"]) + " ",con);
         int value = Convert.ToInt32(Session["OrderId"]);
-        int ID = Convert.ToInt32(Session["OId"]);curId = ID / 100;
-        int previousID = Convert.ToInt32(Session["Previous"]);preID = previousID / 100;
-        if (curId == preID)
-        {
-            finalID = ID++;
-        }
-        else
-        {
-            fakeId = curId.ToString()+"00";
-            finalID = Convert.ToInt32(fakeId) + 1;
-            Session["ItemNo"] = finalID % 100;
-        }
-        
-        
+        int finalID = Convert.ToInt32(Session["OId"]);
+       
         SqlDataAdapter da = new SqlDataAdapter(cmd);
         DataTable dt = new DataTable();
         da.Fill(dt);
@@ -47,18 +35,19 @@ public partial class AddtoCart : System.Web.UI.Page
             int i = cmdn.ExecuteNonQuery();
             if (i > 0)
             {
-                Label1.Text = "Success!";
-                
-            }
-            else
-                Label1.Text = "Fail!";
+                tmp = Convert.ToInt32(Session["ItemNO"]);
+                tmp++;
+                Session["ItemNO"] = tmp; 
+             }
+            else { }
+               
 
         }
         con.Close();
 
         if (Session["CategoryId"] != null)
-            Response.Redirect("~/ProductList.aspx");
+            Response.Redirect("~/Products.aspx");
 
-        else Response.Redirect("~/Home.aspx");
+        else Response.Redirect("~/Home.aspx"); 
     }
 }
