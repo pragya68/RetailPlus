@@ -28,7 +28,7 @@
         <div style="margin-left:400px;">
        <h1 style="font-size:20px; text-transform:none;"> Estimated Total : <asp:Label ID="Label1" runat="server" Text=""></asp:Label></h1>
         <div class="forgot" style="margin-top:auto;">
-            <asp:Button ID="Button1" runat="server" Text="Place Order" />
+            <asp:Button ID="Button1" runat="server" Text="Place Order" OnClick="Button1_Click" />
         </div><br /> <br /> <br /><br /> <br /> <br /><br /> <br />
     </div>
     </div>

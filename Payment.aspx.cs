@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
 using System.Data;
 using System.Data.SqlClient;
-=======
->>>>>>> origin/master
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -23,12 +20,13 @@ public partial class Payment : System.Web.UI.Page
     protected void PayNow_Click(object sender, EventArgs e)
     {
         pay();
+        Response.Redirect("~/Shipping.aspx");
     }
 
     void pay()
     {
         con.Open();
-        SqlCommand cmd = new SqlCommand("Insert into PaymentDetails Values('"+ Payx.Value +"','"+ CardNo.Text +"','" + BankName.Text + "') ", con);
+        SqlCommand cmd = new SqlCommand("Insert into PaymentDetails Values('"+ Payx.Value.ToString() +"','"+ CardNo.Text +"','" + BankName.Text + "') ", con);
         int i = cmd.ExecuteNonQuery();
         if (i > 0)
         {
@@ -51,12 +49,8 @@ public partial class Payment : System.Web.UI.Page
 
     void addToOrder()
     {
-        Random R = new Random();
-        double D = R.Next(1, 4);
-        SqlCommand cmd = new SqlCommand("Insert into Orders Values('"+Session["Oid"]+"','"+Session["id"]+",@OrderDate,@OrderTime,@ShippingDate,'"+"N"+"',"+getPaymentID()+",", con);
-        cmd.Parameters.Add("@OrderDate", SqlDbType.Date).Value = DateTime.Now.Date;
-        cmd.Parameters.Add("@OrderTime", SqlDbType.Date).Value = DateTime.Now.TimeOfDay;
-        cmd.Parameters.Add("@ShippingDate", SqlDbType.Date).Value = DateTime.Now.Date.AddDays(D);
+        int val = getPaymentID();
+        SqlCommand cmd = new SqlCommand("Insert into Orders(OrderID,Username,Fulfilled,PaymentID) Values('"+ Convert.ToInt32(Session["OId"]) +"' , '"+ Session["id"].ToString() +"' , '"+ "N" +"' , "+ val +")", con);
         int i = cmd.ExecuteNonQuery();
         if (i > 0)
         {
