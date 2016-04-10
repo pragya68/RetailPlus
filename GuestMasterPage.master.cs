@@ -8,7 +8,8 @@ using System.Web.UI.WebControls;
 
 public partial class GuestMasterPage : System.Web.UI.MasterPage
 {
-    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Sushant\Documents\GitHub\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
+    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pragya\Documents\SEM_4\DBMS_Project\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
+    //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Sushant\Documents\GitHub\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -79,5 +80,11 @@ public partial class GuestMasterPage : System.Web.UI.MasterPage
             //Label4.Text = "Shopping Cart(" + Session["ItemNO"].ToString() + ")";
         }
 
+    }
+
+    protected void ImageButtonSearchHome_Click(object sender, ImageClickEventArgs e)
+    {
+        Session["SearchKey"] = TextBoxSearchHome.Text;
+        Response.Redirect("~/SearchResults.aspx");
     }
 }

@@ -22,7 +22,9 @@
         <div id="header">
             <img  alt="Buy" height="120" width="120" src="css/images/websitebasket.png" />
             <img  alt="Equilibrium" height="120" width="300" src="css/images/Equilibrium.png" />
-            <div style="position:absolute; display:inline-block; margin:40px 30px;" class="login-top" > <asp:TextBox ID="TextBox1" runat="server"  placeholder="Search ..." Width="500px"></asp:TextBox>
+            <div style="position:absolute; display:inline-block; margin:40px 30px;" class="login-top" > 
+               <asp:TextBox ID="TextBoxSearchHome" runat="server" TextMode="SingleLine" placeholder="Search ..." Width="500px"></asp:TextBox>
+                <asp:ImageButton ID="ImageButtonSearchHome" runat="server" OnClick="ImageButtonSearchHome_Click" Height="42px" ImageAlign="Top" ImageUrl="~/images/search_icon.png" Width="38px" />
              </div>
             <p class="links"><a href="login/login.aspx"><asp:Label ID="Label1" runat="server" Text=""></asp:Label></a> | 
                  <a href="login/signup.aspx"> <asp:Label ID="Label2" runat="server" Text=""></asp:Label></a>

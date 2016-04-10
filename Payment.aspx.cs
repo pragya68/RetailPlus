@@ -1,7 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.Data;
 using System.Data.SqlClient;
+=======
+>>>>>>> origin/master
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,7 +17,7 @@ public partial class Payment : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //PaymentType.Text = String.Empty;
+        
     }
 
     protected void PayNow_Click(object sender, EventArgs e)

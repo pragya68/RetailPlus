@@ -54,7 +54,7 @@
          <Columns>
              <asp:TemplateField HeaderText="Delete">
                     <ItemTemplate>
-                        <asp:LinkButton runat="server" ID="linkdelete" Text="Delete" OnCommand="linkdelete_Command" CommandArgument='<%#Eval("ProductID") %>'></asp:LinkButton>
+                        <asp:LinkButton runat="server" ID="linkdelete" Text="Delete" OnCommand="linkdelete_Command" CommandArgument='<%#Eval("ProductID")%>'></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
          </Columns>
