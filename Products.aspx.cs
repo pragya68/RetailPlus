@@ -40,11 +40,7 @@ public partial class Products : System.Web.UI.Page
         }
     }
 
-    protected void CheckBoxList2_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
+    
     protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
     {
         String text="'";
@@ -140,6 +136,50 @@ public partial class Products : System.Web.UI.Page
             Session["OrderId"] = e.CommandArgument.ToString();
             Response.Redirect("~/AddtoCart.aspx");
         }
+    }
+
+    protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
+    {
+        con.Open();
+        SqlCommand cmd = new SqlCommand("select * from Products where ProductType = '" + Session["CategoryID"].ToString() + "' and Discount between 0 and 25 ", con);
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+        da.Fill(dt);
+        ListViewPopularProducts.DataSource = dt;
+        ListViewPopularProducts.DataBind();
+    }
+
+    protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
+    {
+        con.Open();
+        SqlCommand cmd = new SqlCommand("select * from Products where ProductType = '" + Session["CategoryID"].ToString() + "' and Discount between 25 and 50 ", con);
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+        da.Fill(dt);
+        ListViewPopularProducts.DataSource = dt;
+        ListViewPopularProducts.DataBind();
+    }
+
+    protected void RadioButton3_CheckedChanged(object sender, EventArgs e)
+    {
+        con.Open();
+        SqlCommand cmd = new SqlCommand("select * from Products where ProductType = '" + Session["CategoryID"].ToString() + "' and Discount between 50 and 75 ", con);
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+        da.Fill(dt);
+        ListViewPopularProducts.DataSource = dt;
+        ListViewPopularProducts.DataBind();
+    }
+
+    protected void RadioButton4_CheckedChanged(object sender, EventArgs e)
+    {
+        con.Open();
+        SqlCommand cmd = new SqlCommand("select * from Products where ProductType = '" + Session["CategoryID"].ToString() + "' and Discount between 75 and 100 ", con);
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+        da.Fill(dt);
+        ListViewPopularProducts.DataSource = dt;
+        ListViewPopularProducts.DataBind();
     }
 }
 

@@ -19,7 +19,14 @@ public partial class Payment : System.Web.UI.Page
 
     protected void PayNow_Click(object sender, EventArgs e)
     {
-        pay();
+        try
+        {
+            pay();
+            updateInventory();
+        }
+        catch
+        {
+        }
         Response.Redirect("~/Shipping.aspx");
     }
 
@@ -70,5 +77,11 @@ public partial class Payment : System.Web.UI.Page
          value = Convert.ToInt32(nDt.Rows[0]["PaymentID"].ToString());
         }
         return value;
+    }
+
+    void updateInventory()
+    {
+        SqlCommand cmd = new SqlCommand("Update Products Set AvailabeUnits = AvailableUnits - 1 where ProductID = " + Convert.ToInt32(Session["OrderId"]) + " and AvailableUnits > 0 ", con);
+        int i = cmd.ExecuteNonQuery();
     }
 }

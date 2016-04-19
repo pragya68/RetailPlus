@@ -21,11 +21,12 @@
                                     <asp:ListItem Text="Pink" Value="Pink"></asp:ListItem>
                                   </asp:CheckBoxList>                                
                     </span></a></li>
-    <li><a href='#'><span>Discount :<asp:CheckBoxList ID="CheckBoxList2" runat="server" OnSelectedIndexChanged="CheckBoxList2_SelectedIndexChanged">
-        <asp:ListItem Text="10%-30%" Value="A"></asp:ListItem>
-        <asp:ListItem Text="40%-70%" Value="B"></asp:ListItem>
-        <asp:ListItem Text="80%-above" Value="B"></asp:ListItem>
-        </asp:CheckBoxList>
+    <asp:HiddenField ID="dVal" runat="server" />
+    <li><a href='#'><span>Discount: <br /> 
+   <asp:RadioButton ID="RadioButton1" Text="0% - 25%" runat="server" GroupName="Discount" AutoPostBack="true" OnCheckedChanged="RadioButton1_CheckedChanged"/><br />
+   <asp:RadioButton ID="RadioButton2" Text="25% - 50%" runat="server" GroupName="Discount" AutoPostBack="true" OnCheckedChanged="RadioButton2_CheckedChanged" /><br />
+   <asp:RadioButton ID="RadioButton3" Text="50% - 75%" runat="server" GroupName="Discount" AutoPostBack="true" OnCheckedChanged="RadioButton3_CheckedChanged"/><br />
+   <asp:RadioButton ID="RadioButton4" Text="75% & above" runat="server" GroupName="Discount" AutoPostBack="true" OnCheckedChanged="RadioButton4_CheckedChanged" />   
         </span></a></li></ul> </div></div>
      <div style="float:left;width:85%">
     <div style="background-color:#fff; " >
