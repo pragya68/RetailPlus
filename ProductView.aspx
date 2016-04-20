@@ -20,22 +20,35 @@
             <td runat="server"  class="ListView_Product_List">
                 <h1 style="float:left;"><%#Eval("ProductName")%></h1>
                 <p style="margin-top:100px;text-align:left;font-family:Candara;font-size:18px"> 
+                    <span style="font-weight:bold;">Description</span><br />
                     <%#Eval("Description")%> <br />
-                    <%#Eval("Colour")%> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%#Eval("Weight")%> <br />
-                <asp:Label ID="LabelPrice" runat="server" Text="Unit Price : Rs."><%#Eval("MSRP")%></asp:Label> <br />
+                    <span style="font-weight:bold;">Color :</span>
+                    <%#Eval("Colour")%> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+                    <span style="font-weight:bold;">Weight(in grams) :</span>
+                    <%#Eval("Weight")%> <br />
+                <asp:Label ID="LabelPrice" runat="server" Text="Unit Price : Rs."><%#Eval("MSRP")%></asp:Label>
                 </p>
             </td>
         </ItemTemplate>
-
-
-    </asp:ListView>
+        </asp:ListView>
             
-            <br /> <br />
             <div class="forgot">
             <asp:Button ID="Button1" runat="server" Text="Add To Cart" />
-        </div>
+                <br /><br /><br />
+            </div>
     </div>
             
     </div>
+    <div class="footer">
+                <div class="left_footer">
+                    <a href="#">home</a> <a href="#">about</a> <a href="#">sitemap</a> <a href="#">rss</a> <a href="#">contact us</a>
+                </div>
+                <div class="center_footer">
+                        
+                </div>
+                <div class="right_footer">
+                <img src="css/images/websitebasket.png" alt="" width="100" height="100" />
+                 </div>
+            </div>
 </asp:Content>
 

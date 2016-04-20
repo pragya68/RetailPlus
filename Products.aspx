@@ -10,6 +10,8 @@
 <div id='cssmenu_v'>
 <ul>
    <li class='active'></li>
+    <li><span>
+       <asp:LinkButton ID="Def" runat="server" OnClick="Def_Click">Clear All</asp:LinkButton></span></li>
    <li><span>
        <asp:LinkButton ID="LinkButtonHL" runat="server" OnClick="LinkButtonHL_Click">Price:High to Low</asp:LinkButton></span></li>
    <li><span>

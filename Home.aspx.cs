@@ -22,7 +22,7 @@ public partial class _Default : System.Web.UI.Page
         try
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from Products", con);
+            SqlCommand cmd = new SqlCommand("select top 12 * from Products order by NEWID() ", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);

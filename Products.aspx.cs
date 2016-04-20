@@ -181,5 +181,10 @@ public partial class Products : System.Web.UI.Page
         ListViewPopularProducts.DataSource = dt;
         ListViewPopularProducts.DataBind();
     }
+
+    protected void Def_Click(object sender, EventArgs e)
+    {
+        bindData();
+    }
 }
 
