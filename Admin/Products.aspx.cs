@@ -21,12 +21,13 @@ public partial class Admin_Products : System.Web.UI.Page
 
     protected void save_Click(object sender, EventArgs e)
     {
+        con.Open();
         if (ImageUpload.HasFile)
         {
             string file_name = Path.GetFileName(ImageUpload.PostedFile.FileName);
             string extention = Path.GetExtension(ImageUpload.PostedFile.FileName);
-            ImageUpload.SaveAs(Server.MapPath("/product_images/" + file_name + ProductName.Text + extention));
-            string image = "/product_images/" + file_name + ProductName.Text + extention;
+            ImageUpload.SaveAs(Server.MapPath("/product_images/"+file_name.Trim()+ProductName.Text.Trim()+extention.Trim()));
+            string image = "/product_images/"+file_name.Trim()+ProductName.Text.Trim()+extention.Trim();
             con.Open();
             SqlCommand cmd = new SqlCommand("insert into Products values('" + ManufacturerID.Text + "','" + ProductName.Text + "','" + Description.Text + "','" + Weight.Text + "','" + Colour.Text + "','" + AvailableUnits.Text + "','" + MSRP.Text + "','" + Discount.Text + "','" + image.ToString() + "','" + ProductType.Text + "')", con);
             int i = cmd.ExecuteNonQuery();
@@ -69,12 +70,12 @@ public partial class Admin_Products : System.Web.UI.Page
     protected void linkdelete_Command(object sender, CommandEventArgs e)
     {
         int id = Convert.ToInt32(e.CommandArgument);
-        lblmsg.Text = id.ToString();
         try
         {
             con.Open();
             SqlCommand cmd = new SqlCommand("delete from Products where ProductID =" + id + " ", con);
             cmd.ExecuteNonQuery();
+            con.Close();
             bindData();
         }
         catch (Exception ex)
@@ -82,7 +83,7 @@ public partial class Admin_Products : System.Web.UI.Page
         }
         finally
         {
-            con.Close();
+           
         }
 
     }
