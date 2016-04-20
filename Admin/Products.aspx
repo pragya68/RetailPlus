@@ -16,10 +16,8 @@
     <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ErrorMessage="*" ControlToValidate="Description" ForeColor="red" ValidationGroup="Products"></asp:RequiredFieldValidator>
     <br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:TextBox ID="Weight" runat="server" placeholder="Weight"></asp:TextBox>
-    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator4" ErrorMessage="*" ControlToValidate="Weight" ForeColor="red" ValidationGroup="Products"></asp:RequiredFieldValidator>
     <br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:TextBox ID="Colour" runat="server" placeholder="Colour"></asp:TextBox>
-    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator5" ErrorMessage="*" ControlToValidate="Colour" ForeColor="red" ValidationGroup="Products"></asp:RequiredFieldValidator>
     <br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:TextBox ID="AvailableUnits" runat="server" placeholder="AvailableUnits"></asp:TextBox>
     <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator6" ErrorMessage="*" ControlToValidate="AvailableUnits" ForeColor="red" ValidationGroup="Products"></asp:RequiredFieldValidator>

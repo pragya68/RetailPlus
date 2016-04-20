@@ -28,7 +28,7 @@ public partial class Admin_Products : System.Web.UI.Page
             string extention = Path.GetExtension(ImageUpload.PostedFile.FileName);
             ImageUpload.SaveAs(Server.MapPath("/product_images/"+file_name.Trim()+ProductName.Text.Trim()+extention.Trim()));
             string image = "/product_images/"+file_name.Trim()+ProductName.Text.Trim()+extention.Trim();
-            con.Open();
+            
             SqlCommand cmd = new SqlCommand("insert into Products values('" + ManufacturerID.Text + "','" + ProductName.Text + "','" + Description.Text + "','" + Weight.Text + "','" + Colour.Text + "','" + AvailableUnits.Text + "','" + MSRP.Text + "','" + Discount.Text + "','" + image.ToString() + "','" + ProductType.Text + "')", con);
             int i = cmd.ExecuteNonQuery();
             if (i > 0)

@@ -33,36 +33,6 @@ public partial class GuestMasterPage : System.Web.UI.MasterPage
         Response.Redirect("~/Home.aspx");
     }
 
-    protected void LinkButtonLaptop_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void LinkButtonMobiles_Click(object sender, EventArgs e)
-    {
-        Session["CategoryId"] = "Electronic";
-        Response.Redirect("~/Products.aspx");
-    }
-
-    protected void LinkButtonAudioDevices_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void LinkButtonFiction_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void LinkButtonNonFiction_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void LinkButtonBestsellers_Click(object sender, EventArgs e)
-    {
-
-    }
 
     protected void LinkButtonCart_Click(object sender, EventArgs e)
     {
@@ -86,5 +56,17 @@ public partial class GuestMasterPage : System.Web.UI.MasterPage
     {
         Session["SearchKey"] = TextBoxSearchHome.Text;
         Response.Redirect("~/SearchResults.aspx");
+    }
+
+    protected void LinkButtonMobiles_Command(object sender, CommandEventArgs e)
+    {
+        Session["CategoryId"] = e.CommandArgument.ToString();
+        Response.Redirect("~/Products.aspx");
+    }
+
+    protected void LinkButtonBestsellers_Command(object sender, CommandEventArgs e)
+    {
+        Session["CategoryId"] = e.CommandArgument.ToString();
+        Response.Redirect("~/Products.aspx");
     }
 }
