@@ -65,6 +65,7 @@
     <li><a href="User.aspx"><span>Profile</span></a></li>
     <li><span>
         <asp:LinkButton ID="LinkButtonCart" runat="server" OnClick="LinkButtonCart_Click">Shopping Cart </asp:LinkButton></span></li>
+    <li><span> <asp:LinkButton ID="LinkButtonOrders" runat="server" OnClick="LinkButtonOrders_Click">Orders</asp:LinkButton> </span></li>
 </ul>
 </div>
         

@@ -69,4 +69,16 @@ public partial class GuestMasterPage : System.Web.UI.MasterPage
         Session["CategoryId"] = e.CommandArgument.ToString();
         Response.Redirect("~/Products.aspx");
     }
+
+    protected void LinkButtonOrders_Click(object sender, EventArgs e)
+    {
+        if (Session["id"] == null)
+        {
+            Response.Redirect("~/login/login.aspx");
+        }
+        else
+        {
+            Response.Redirect("~/ViewOrders.aspx");
+        }
+    }
 }
