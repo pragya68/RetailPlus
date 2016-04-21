@@ -32,7 +32,7 @@
         </span></a></li></ul> </div></div>
      <div style="float:left;width:85%">
     <div style="background-color:#fff; " >
-     <asp:ListView ID="ListViewPopularProducts" runat="server" style="margin-left:30px; margin-right:30px; background-color:#ffffff;"  GroupItemCount="4" EnableSortingAndPagingCallbacks="true">
+        <asp:ListView ID="ListViewPopularProducts" runat="server" style="margin-left:30px; margin-right:30px; background-color:#ffffff;"  GroupItemCount="4" EnableSortingAndPagingCallbacks="true">
         <LayoutTemplate>
             <table cellpadding="2" runat="server" id="tblProducts" style="height: 320px">
                 <tr runat="server" id="groupPlaceholder"> </tr>

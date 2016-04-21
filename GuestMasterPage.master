@@ -42,7 +42,7 @@
          <li class='has-sub'><a href='#'><span>Electronics</span></a>
             <ul>
                <li><span>
-                   <asp:LinkButton ID="LinkButtonMobiles" runat="server" OnCommand="LinkButtonMobiles_Command" CommandArgument='Electronics'>Mobiles</asp:LinkButton></span></li>
+                   <asp:LinkButton ID="LinkButtonMobiles" runat="server" OnCommand="LinkButtonMobiles_Command" CommandArgument='Electronic'>Mobiles</asp:LinkButton></span></li>
                 <li><span>
                     <asp:LinkButton ID="LinkButtonAudioDevices" runat="server" >Audio Devices</asp:LinkButton></span></li>
                <li class='last'><span>

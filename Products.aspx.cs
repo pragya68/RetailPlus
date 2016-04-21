@@ -11,15 +11,19 @@ public partial class Products : System.Web.UI.Page
 {
     //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\pragya\Documents\SEM_4\DBMS_Project\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
     SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Sushant\Documents\GitHub\RetailPlus\App_Data\Database.mdf;Integrated Security=True");
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["CategoryId"] != null)
         {
-            bindData();      
+            bindData();
         }
+        
     }
+
     void bindData()
     {
+        
         try
         {
             con.Open();
@@ -28,8 +32,7 @@ public partial class Products : System.Web.UI.Page
             DataTable dt = new DataTable();
             da.Fill(dt);
             ListViewPopularProducts.DataSource = dt;
-            ListViewPopularProducts.DataBind();
-
+            ListViewPopularProducts.DataBind();            
         }
         catch (Exception ex)
         {
@@ -147,6 +150,7 @@ public partial class Products : System.Web.UI.Page
         da.Fill(dt);
         ListViewPopularProducts.DataSource = dt;
         ListViewPopularProducts.DataBind();
+        con.Close();
     }
 
     protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
@@ -158,7 +162,9 @@ public partial class Products : System.Web.UI.Page
         da.Fill(dt);
         ListViewPopularProducts.DataSource = dt;
         ListViewPopularProducts.DataBind();
+        con.Close();
     }
+
 
     protected void RadioButton3_CheckedChanged(object sender, EventArgs e)
     {
@@ -169,6 +175,7 @@ public partial class Products : System.Web.UI.Page
         da.Fill(dt);
         ListViewPopularProducts.DataSource = dt;
         ListViewPopularProducts.DataBind();
+        con.Close();
     }
 
     protected void RadioButton4_CheckedChanged(object sender, EventArgs e)
@@ -180,6 +187,7 @@ public partial class Products : System.Web.UI.Page
         da.Fill(dt);
         ListViewPopularProducts.DataSource = dt;
         ListViewPopularProducts.DataBind();
+        con.Close();
     }
 
     protected void Def_Click(object sender, EventArgs e)

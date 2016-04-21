@@ -27,7 +27,7 @@ public partial class ViewOrders : System.Web.UI.Page
             da.Fill(dt);
             GridViewShoppingCart.DataSource = dt;
             GridViewShoppingCart.DataBind();
-            con.Close();
+            
         }
         catch
         {
